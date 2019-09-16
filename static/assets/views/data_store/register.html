@@ -1,0 +1,88 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.ORDER">Register Data</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<div ng-controller="dataRegisterCtrl as ctrl" ng-init="ctrl.readHCode()">
+    <div class="col-md-12">
+        <div class="panel panel-white">
+            <div class="panel-body">
+                <h5 class="over-title margin-bottom-15">Register Harmonize</h5>
+                <div class="row">
+                    <form role="form" class="ng-pristine ng-valid">
+                        <div class="col-lg-12">
+                            <div class="panel panel-transparent">
+                                <div class="panel-body">
+                                    <div class="form-group col-lg-4">
+                                        <label>
+                                            Code
+                                        </label>
+                                        <input type="text" placeholder="" id="form-field-6" class="form-control" ng-model="ctrl.hamonize_code">
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label>
+                                            Name
+                                        </label>
+                                        <input type="text" placeholder="" id="form-field-6" class="form-control" ng-model="ctrl.hamonize_name">
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label>
+                                            year
+                                        </label>
+                                        <select class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="ctrl.harmonize_year">
+                                            <option value="2007">2007</option>
+                                            <option value="2012">2012</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-white">
+                                        <div class="panel-body">
+                                            <h5 class="over-title margin-bottom-15">Thread Process <span ng-if="ctrl.thread.status == 'running'" class="label label-success"> Downloading</span></h5>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="progress-striped progress-xs active progress ng-isolate-scope" value="ctrl.thread.percent" type="success">
+                                                        <div class="progress-bar progress-bar-success" ng-class="type 'progress-bar-' + type" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-style="ctrl.percent" aria-valuetext="vm.percent.width" aria-labelledby="progressbar" ng-transclude=""></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="panel-body pull-right">
+                                        <button type="button" class="btn btn-wide btn-o btn-primary" ng-click="ctrl.addHarmonize(ctrl.hamonize_code, ctrl.hamonize_name, ctrl.harmonize_year)">Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Table -->
+    <div class="col-md-12">
+        <div class="panel panel-white">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <h5 class="over-title margin-bottom-15">Data List</h5>
+                                <table ng-table="ctrl.tableParams" class="table table-striped" show-filter="true">
+                                    <tr ng-repeat="data in ctrl.filtered_hlist">
+                                        <td data-title="'Code'" filter="{ 'code': 'text' }" sortable="'id'">[[data.code]]</td>
+                                        <td data-title="'Name'" filter="{ 'name': 'text' }" sortable="'name'">[[data.name]]</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

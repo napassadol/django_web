@@ -1,0 +1,102 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+    <h4 class="mainTitle no-margin" translate="sidebar.nav.pages.ORDER">Register Data</h4>
+
+    <div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<div ng-controller="dataVirtualCtrl as ctrl" ng-init="ctrl.readHCode()">
+    <div class="col-md-12">
+        <div class="panel panel-white">
+            <div class="panel-body">
+                <h5 class="over-title margin-bottom-15">Data Virtualization</h5>
+                <div class="row">
+                    <form name="appForm" role="form" class="ng-pristine ng-valid">
+                        <div class="col-lg-12">
+                            <div class="panel panel-transparent">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    Chart No.
+                                                </label>
+                                                <select class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="ctrl.plot.chart_no" required>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    Chart Name
+                                                </label>
+                                                <input type="text" placeholder="" id="form-field-6" class="form-control" ng-model="ctrl.plot.chart_name" required>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    Trace Name
+                                                </label>
+                                                <input type="text" placeholder="" id="form-field-6" class="form-control" ng-model="ctrl.plot.trace_name" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    Harmonize Code
+                                                </label>
+                                                <input type="text" placeholder="" id="form-field-6" class="form-control" ng-model="ctrl.plot.harmonize" ng-change="ctrl.getColumn()" required>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    X Axis
+                                                </label>
+                                                <select class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="ctrl.plot.x_axis" required>
+                                                    <option value="[[item]]" ng-repeat="item in ctrl.column">[[item]]</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>
+                                                    Y Axis
+                                                </label>
+                                                <select class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="ctrl.plot.y_axis" required>
+                                                    <option value="[[item]]" ng-repeat="item in ctrl.column">[[item]]</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="panel-body pull-right">
+                                        <button type="button" class="btn btn-wide btn-o btn-primary" ng-click="ctrl.plotMap(appForm)">Plot Map</button>
+                                        <button type="button" class="btn btn-wide btn-o btn-primary" ng-click="ctrl.plotChart(appForm)">Plot Chart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-white">
+            <div class="panel-body">
+                <h5 class="over-title margin-bottom-15">Data Virtualization</h5>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
