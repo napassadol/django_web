@@ -450,6 +450,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
             //     ncyBreadcrumb: {
             //         label: 'Charts'
             //     }
+
+
         }).state('error', {
             url: '/error',
             template: '<div ui-view class="fade-in-up"></div>'
@@ -460,28 +462,25 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
             url: '/500',
             templateUrl: 'static/assets/views/utility_500.html',
         })
-
-        // Login routes
-
-            .state('login', {
-	    url: '/login',
-                template: '<div ui-view class="fade-in-right-big smooth"></div>',
-	    abstract: true
-            }).state('login.signin', {
-                url: '/signin',
-                resolve: loadSequence('loginCtrl', 'loginApi'),
-	    templateUrl: '/static/assets/views/login/login_login.html'
-            }).state('login.forgot', {
-                url: '/forgot',
-	    templateUrl: 'static/assets/views/login_forgot.html'
-            }).state('login.registration', {
-                url: '/registration',
-                resolve: loadSequence('registerCtrl', 'registerApi'),
-	    templateUrl: '/static/assets/views/register/login_registration.html'
-            }).state('login.lockscreen', {
-	    url: '/lock',
-	    templateUrl: 'static/assets/views/login_lock_screen.html'
-            })
+        .state('login', {
+            url: '/login',
+            template: '<div ui-view class="fade-in-right-big smooth"></div>',
+            abstract: true
+        }).state('login.signin', {
+            url: '/signin',
+            // resolve: loadSequence('loginCtrl', 'loginApi'),
+            templateUrl: '/static/assets/views/login/login_login.html'
+        }).state('login.forgot', {
+            url: '/forgot',
+            templateUrl: 'static/assets/views/login_forgot.html'
+        }).state('login.registration', {
+            url: '/registration',
+            resolve: loadSequence('registerCtrl', 'registerApi'),
+            templateUrl: '/static/assets/views/register/login_registration.html'
+        }).state('login.lockscreen', {
+            url: '/lock',
+            templateUrl: 'static/assets/views/login_lock_screen.html'
+        })
 
         // Landing Page route
             .state('landing', {

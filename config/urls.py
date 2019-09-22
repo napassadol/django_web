@@ -27,5 +27,7 @@ urlpatterns = [
     # url(r'^datastore/plot_data', datastore_view.PlotData.as_view()),
     # url(r'^datastore/plot_map', datastore_view.PlotMap.as_view()),
 
-    url(r'^$', views.index)
+    url(r'^$', views.index),
+    url(r'^check_session', views.check_session),
+    url(r'^check_login', views.login)
 ]

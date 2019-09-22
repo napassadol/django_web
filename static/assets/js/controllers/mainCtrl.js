@@ -2,8 +2,8 @@
 /**
  * Clip-Two Main Controller
  */
-app.controller('AppCtrl', ['$rootScope', '$scope', '$state', '$swipe', '$translate', '$localStorage', '$window', '$document', '$timeout', 'cfpLoadingBar', 'Fullscreen',
-function ($rootScope, $scope, $state, $swipe, $translate, $localStorage, $window, $document, $timeout, cfpLoadingBar, Fullscreen) {
+app.controller('AppCtrl', ['$rootScope', '$scope', '$state', '$swipe', '$translate', '$localStorage', '$window', '$document', '$timeout', 'cfpLoadingBar', 'Fullscreen', '$http',
+function ($rootScope, $scope, $state, $swipe, $translate, $localStorage, $window, $document, $timeout, cfpLoadingBar, Fullscreen, $http) {
 
     // Loading bar transition
     // -----------------------------------
@@ -18,19 +18,39 @@ function ($rootScope, $scope, $state, $swipe, $translate, $localStorage, $window
     };
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         //start loading bar on stateChangeStart
-        cfpLoadingBar.start();
-        $scope.horizontalNavbarCollapsed = true;
-        if (toState.name == "app.pagelayouts.boxedpage") {
-            $body.addClass("app-boxed-page");
-        } else {
-            $body.removeClass("app-boxed-page");
-        }
-        if(typeof CKEDITOR !== 'undefined'){
-	        for(name in CKEDITOR.instances)
-			{
-			    CKEDITOR.instances[name].destroy();
-			}
-		}
+        $http.get("/check_session").then(function(response) {
+            if(response.data.username == undefined && toState.name != 'login.signin'){
+                window.location.href = "/#/login/signin"
+            }
+            else{
+                cfpLoadingBar.start();
+                $scope.horizontalNavbarCollapsed = true;
+                if (toState.name == "app.pagelayouts.boxedpage") {
+                    $body.addClass("app-boxed-page");
+                } else {
+                    $body.removeClass("app-boxed-page");
+                }
+                if(typeof CKEDITOR !== 'undefined'){
+                    for(name in CKEDITOR.instances)
+                    {
+                        CKEDITOR.instances[name].destroy();
+                    }
+                }
+            }
+        });
+        // cfpLoadingBar.start();
+        // $scope.horizontalNavbarCollapsed = true;
+        // if (toState.name == "app.pagelayouts.boxedpage") {
+        //     $body.addClass("app-boxed-page");
+        // } else {
+        //     $body.removeClass("app-boxed-page");
+        // }
+        // if(typeof CKEDITOR !== 'undefined'){
+        //     for(name in CKEDITOR.instances)
+        //     {
+        //         CKEDITOR.instances[name].destroy();
+        //     }
+        // }
     });
     $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
 
