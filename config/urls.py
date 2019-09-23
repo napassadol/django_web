@@ -29,5 +29,14 @@ urlpatterns = [
 
     url(r'^$', views.index),
     url(r'^check_session', views.check_session),
-    url(r'^check_login', views.login)
+    url(r'^check_login', views.login),
+
+    #company
+    url(r'^company/list', views.getCompanyList),
+    url(r'^company/edit', views.editCompany),
+    url(r'^company/delete', views.deleteCompany),
+    url(r'^company/add', views.addCompany),
+
+    #product
+    url(r'^product/list', views.getProductList)
 ]

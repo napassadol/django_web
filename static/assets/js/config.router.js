@@ -35,12 +35,28 @@ app.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', '$com
             abstract: true
         }).state('app.dashboard', {
             url: '/dashboard',
-            templateUrl: 'static/assets/views/dashboard.html',
+            templateUrl: 'static/assets/views/dashboard/dashboard.html',
             resolve: loadSequence('d3', 'ui.knob', 'countTo', 'dashboardCtrl'),
             title: 'Dashboard',
             ncyBreadcrumb: {
                 label: 'Dashboard'
             }
+        }).state('app.register', {
+            url: '/dashboard',
+            templateUrl: 'static/assets/views/register/register.html',
+        }).state('app.product', {
+            url: '/product',
+            templateUrl: '/static/assets/views/product/product.html',
+            resolve: loadSequence('ngTable', 'productCtrl', 'productApi')
+        }).state('app.company', {
+            url: '/company',
+            templateUrl: '/static/assets/views/company/company.html',
+            resolve: loadSequence('ngTable', 'companyCtrl', 'companyApi')
+            // resolve: loadSequence('d3', 'ui.knob', 'countTo', 'dashboardCtrl'),
+            // title: 'register',
+            // ncyBreadcrumb: {
+            //     label: 'Dashboard'
+            // }
             // }).state('app.pagelayouts', {
             //     url: '/ui',
             //     template: '<div ui-view class="fade-in-up"></div>',

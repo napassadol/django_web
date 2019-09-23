@@ -27,7 +27,7 @@ app.controller('orderCtrl', ['$rootScope', '$scope', '$uibModal', '$filter', 'ng
             'name': 'Onion',
             'date': $filter('date')(new Date(), 'yyyy-MM-dd'),
             'status': 3
-        })
+        })å
 
         vm.cvtStatus = function(x){
             return vm.data.status[x]

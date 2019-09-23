@@ -25,12 +25,16 @@ app.constant('JS_REQUIRES', {
         'jcrop-plugin': ['/static/bower_components/Jcrop/js/jquery.Jcrop.min.js', '/static/bower_components/Jcrop/css/jquery.Jcrop.min.css'],
         
         //*** Service
-        'loginApi': '/static/assets/js/service/loginApi.js',
-        'orderApi': '/static/assets/js/service/orderApi.js',
+        // 'loginApi': '/static/assets/js/service/loginApi.js',
+        // 'orderApi': '/static/assets/js/service/orderApi.js',
+        'productApi': '/static/assets/js/service/productApi.js',
+        'companyApi': '/static/assets/js/service/companyApi.js',
 		
         //*** Controllers
         'dashboardCtrl': '/static/assets/js/controllers/dashboardCtrl.js',
-        'loginCtrl': '/static/assets/js/controllers/login/loginCtrl.js',
+        'productCtrl': '/static/assets/js/controllers/product/productCtrl.js',
+        'companyCtrl': '/static/assets/js/controllers/company/companyCtrl.js',
+        // 'loginCtrl': '/static/assets/js/controllers/login/loginCtrl.js',
 
         'iconsCtrl': '/static/assets/js/controllers/iconsCtrl.js',
         'vAccordionCtrl': '/static/assets/js/controllers/vAccordionCtrl.js',

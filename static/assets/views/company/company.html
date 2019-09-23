@@ -1,0 +1,34 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+	<h4 class="mainTitle no-margin">Company</h4>
+	<div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: FIRST SECTION -->
+<div class="container-fluid container-fullw padding-bottom-10" ng-controller="companyCtrl as ctrl">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-white">
+				<div class="panel-body">
+					<h5 class="over-title margin-bottom-15">Company</h5>
+					<div class="pull-right">
+						<button type="button" class="btn btn-wide btn-o btn-success" ng-click="ctrl.add()">Add</button>
+					</div>
+					<div>
+						<strong>Total:</strong> [[ctrl.company.length]]
+						<table ng-table="tableParams" show-filter="true" class="table table-striped">
+							<tr ng-repeat="company in companys">
+								<td data-title="'Name'" filter="{ 'name': 'text' }"> [[company.name]] </td>
+								<td data-title="'Address'">[[company.address]]</td>
+								<td data-title="'Action'">
+									<a href="" ng-click="ctrl.edit(company)"><i class="fa fa-edit"></i> </a>
+									<a href="" ng-click="ctrl.delete(company)"><i class="fa fa-trash-o"></i></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<!-- start: BREADCRUMB -->
+<div class="breadcrumb-wrapper">
+	<h4 class="mainTitle no-margin">Product</h4>
+	<div ncy-breadcrumb class="pull-right"></div>
+</div>
+<!-- end: BREADCRUMB -->
+<!-- start: FIRST SECTION -->
+<div class="container-fluid container-fullw padding-bottom-10" ng-controller="productCtrl as ctrl">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-white">
+				<div class="panel-body">
+					<h5 class="over-title margin-bottom-15">Product</h5>
+					<div class="pull-right">
+						<button type="button" class="btn btn-wide btn-o btn-success" ng-click="ctrl.save()">Add</button>
+					</div>
+					<div>
+						<strong>Total:</strong> [[ctrl.product.length]]
+						<table ng-table="tableParams" show-filter="true" class="table table-striped">
+							<tr ng-repeat="product in products">
+								<td data-title="'Serial'" filter="{ 'serial': 'text' }"> [[product.serial]] </td>
+								<td data-title="'Name'" filter="{ 'name': 'text' }"> [[product.name]] </td>
+								<td data-title="'Price'">[[product.price]]</td>
+								<td data-title="'Amount'">[[product.amount]]</td>
+								<td data-title="'Company'" filter="{ 'company__name': 'text' }">[[product.company__name]]</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
